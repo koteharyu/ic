@@ -1,0 +1,10 @@
+ = form_with model: post, local: true do |f|
+    .form-group
+      = f.label :body, class: 'b,b-label-floating'
+      = f.text_area :body, class: 'form-control'
+    .form-group
+      = f.label :images, class: 'bmb-label-floating'
+      = f.file_field :images, multiple: true
+      - post.images.each do |img|
+        = image_tag img, size: '100x100'
+    = f.submit class: 'btn btn-primary'
