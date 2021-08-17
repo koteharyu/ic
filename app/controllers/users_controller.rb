@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to login_path, success: "ようこそ、#{@user.username}さん"
     else
-      flash.new[:danger] = "ユーザーの作成に失敗しました"
+      flash.now[:danger] = "ユーザーの作成に失敗しました"
       render :new
     end
   end
