@@ -9,3 +9,15 @@
             = icon 'far', 'trash-alt', class: 'fa-lg'
           = link_to edit_post_path(post) do
             = icon 'far', 'edit', class: 'fa-lg'
+    = link_to post_path(post) do
+      .swiper-container
+        .swiper-wrapper
+          - post.images.each do |img|
+            .swiper-slide
+              = image_tag img, class: 'card-img-top'
+        .swiper-pagination
+        .swiper-button-prev
+        .swiper-button-next
+  .card-body
+    .card-text
+      = post.body
