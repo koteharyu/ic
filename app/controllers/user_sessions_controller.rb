@@ -5,7 +5,7 @@ class UserSessionsController < ApplicationController
   def create
     @user = login(params[:email], params[:password])
     if @user
-      redirect_back_or_to root_path, success: "おかえり、#{@user.name}さん"
+      redirect_back_or_to root_path, success: "おかえり、#{@user.namename}さん"
     else
       flash.new[:danger] = "ログインに失敗しました"
       render :new
