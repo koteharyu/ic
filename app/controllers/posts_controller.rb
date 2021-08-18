@@ -23,13 +23,13 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = current_user.posts.find(params[:id])
+    post
   end
 
   def update
-    @post = current_user.posts.find(params[:id])
-    if @post.update(post_params)
-      redirect_to post_path(@post), success: '投稿を更新しました'
+    post
+    if post.update(post_params)
+      redirect_to post_path(post), success: '投稿を更新しました'
     else
       flash.now[:danger] = "投稿の更新に失敗しました"
       render :edit
@@ -37,9 +37,13 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = current_user.posts.find(params[:id])
-    @post.destroy!
+    post
+    post.destroy!
     redirect_to posts_path, success: '投稿を削除しました'
+  end
+
+  def post
+    @post ||= current_user.posts.find(params[:id])
   end
 
   private
