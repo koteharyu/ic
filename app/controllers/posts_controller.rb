@@ -27,7 +27,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    post
     if post.update(post_params)
       redirect_to post_path(post), success: '投稿を更新しました'
     else
@@ -37,7 +36,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post
     post.destroy!
     redirect_to posts_path, success: '投稿を削除しました'
   end
