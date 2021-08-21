@@ -2,6 +2,7 @@
   .row
     .col-12.col-md-8
       = render @posts
+      = paginate @posts, class: "text-center"
     .col-12.col-md-4
       -if logged_in?
         .mb-3
