@@ -1,5 +1,7 @@
 - if @comment.errors.any?
   | alert("#{@comment.errors.full_messages.join('\n')}");
 - else
-  | $('.comments_box').prepend(#{j render('comments/comment', comment: @comment)});
-  | $('.input-comment-body').val('')
+  / 新しい投稿をコメント一覧の一番上に持ってくる
+  | $('.comments-box').prepend("#{j render('comments/comment', comment: @comment)}");
+  / 投稿したので、次の投稿がしやすいように、投稿欄を空にする
+  | $('.input-comment-body').val('');
