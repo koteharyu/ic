@@ -1,0 +1,28 @@
+.container
+  .row
+    .col-12.col-md-8
+      = render @posts
+    .col-12.col-md-4
+      -if logged_in?
+        .mb-3
+          = image_tag 'profile-placeholder.png', size: '50x50', class: 'rounded-circle mr-1'
+          = current_user.username
+      div
+        .card
+          .card-header
+            | ユーザー
+          .card-body
+            .mb-3
+              = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle mr-1'
+              | ダミーくん
+            .mb-3
+              = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle mr-1'
+              | ダミーくん
+            .mb-3
+              = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle mr-1'
+              | ダミーくん
+            .mb-3
+              = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle mr-1'
+              | ダミーくん
+          .card-footer
+            = link_to '全てみる', "#"
