@@ -36,6 +36,7 @@ gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails'   # Rails5.1以上の場合は追加
 gem 'font-awesome-sass'
 gem 'kaminari'
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
