@@ -27,14 +27,9 @@
       .col-10
         = simple_format(@post.body)
     hr
-    .row.no-gutters
-      .col-2
-        = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle'
-      .col-1
-        | ダミーコメントコーナー
+    = render 'comments/comments', comments: @comments
     hr.m-0
     .p-3
-      form.form-inline.mb-0
-        input type="text" class="form-control" placeholder="コメント"
-        button type="submit" class="btn btn-primary"
-          | 投稿
+      = form_with model: [@post, @comment], class: 'd-flex mb-0 flex-nowrap justify-content-between', local: false do |f|
+        = f.text_field :body, class: 'form-control input-comment-body', placeholder: 'コメント'
+        = f.submit 'コメント', class: 'btn btn-primary'
